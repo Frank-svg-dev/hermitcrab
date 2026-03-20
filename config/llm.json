@@ -1,0 +1,20 @@
+{
+  "llm": {
+    "provider": "openai",
+    "baseUrl": "https://cdn.12ai.org/v1",
+    "apiKey": {
+      "source": "env",
+      "id": "CUSTOM_API_KEY"
+    },
+    "model": "qwen3.5-plus",
+    "options": {
+      "temperature": 0.3,
+      "maxTokens": 1024,
+      "timeout": 30000
+    }
+  },
+  "_comment": "API Key 也可以直接写在这里 (不推荐):",
+  "_example": {
+    "apiKey": "sk-your-actual-api-key-here"
+  }
+}

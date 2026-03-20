@@ -1,0 +1,50 @@
+{
+  "name": "llm-clawbands",
+  "version": "0.1.0",
+  "description": "LLM-powered security middleware for OpenClaw with token auth and profile learning",
+  "type": "module",
+  "main": "dist/plugin/index.js",
+  "types": "dist/plugin/index.d.ts",
+  "bin": {
+    "llm-clawbands": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "init": "node dist/cli/index.js init",
+    "test": "node dist/test.js"
+  },
+  "keywords": [
+    "openclaw",
+    "security",
+    "llm",
+    "ai-safety"
+  ],
+  "author": "Frank",
+  "license": "MIT",
+  "openclaw": {
+    "extensions": [
+      "./dist/plugin/index.js"
+    ],
+    "plugin": {
+      "id": "llm-clawbands",
+      "label": "LLM-ClawBands",
+      "docsPath": "/plugins/llm-clawbands"
+    }
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.0.0",
+    "crypto-js": "^4.2.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

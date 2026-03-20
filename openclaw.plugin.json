@@ -1,0 +1,53 @@
+{
+  "id": "llm-clawbands",
+  "channels": [],
+  "skills": [],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "llm": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "baseUrl": { "type": "string" },
+          "apiKey": { "type": "string", "writeOnly": true },
+          "model": { "type": "string" },
+          "temperature": { "type": "number" },
+          "maxTokens": { "type": "number" },
+          "timeout": { "type": "number" }
+        }
+      },
+      "token": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "secret": { "type": "string", "writeOnly": true },
+          "algorithm": { "type": "string" }
+        }
+      },
+      "profile": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "trustThreshold": { "type": "number" },
+          "decayDays": { "type": "number" }
+        }
+      },
+      "riskThresholds": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "autoAllow": { "type": "string" },
+          "autoDeny": { "type": "string" },
+          "humanReview": { "type": "array" }
+        }
+      }
+    }
+  }
+}
