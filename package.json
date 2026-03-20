@@ -1,5 +1,5 @@
 {
-  "name": "llm-clawbands",
+  "name": "hermitcrab",
   "version": "0.1.0",
   "description": "LLM-powered security middleware for OpenClaw with token auth and profile learning",
   "type": "module",
@@ -27,8 +27,8 @@
       "./dist/plugin/index.js"
     ],
     "plugin": {
-      "id": "llm-clawbands",
-      "label": "LLM-ClawBands",
+      "id": "hermitcrab",
+      "label": "HermitCrab",
       "docsPath": "/plugins/llm-clawbands"
     }
   },
