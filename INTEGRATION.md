@@ -11,7 +11,7 @@
 ### 步骤 1: 构建项目
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 npm install
 npm run build
 ```
@@ -23,21 +23,21 @@ npm run build
 ```json
 {
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true
       }
     },
     "installs": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "source": "local",
-        "spec": "/home/node/.openclaw/workspace/llm-clawbands",
-        "installPath": "/home/node/.openclaw/workspace/llm-clawbands",
+        "spec": "/home/node/.openclaw/workspace/hermitcrab",
+        "installPath": "/home/node/.openclaw/workspace/hermitcrab",
         "version": "0.1.0",
-        "resolvedName": "llm-clawbands",
+        "resolvedName": "hermitcrab",
         "resolvedVersion": "0.1.0",
-        "resolvedSpec": "file:/home/node/.openclaw/workspace/llm-clawbands",
+        "resolvedSpec": "file:/home/node/.openclaw/workspace/hermitcrab",
         "installedAt": "2026-03-19T04:00:00.000Z"
       }
     }
@@ -66,26 +66,26 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 ### 步骤 1: 发布到 npm (可选)
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 npm publish
 ```
 
 ### 步骤 2: 使用 OpenClaw CLI 安装
 
 ```bash
-openclaw plugins install llm-clawbands
+openclaw plugins install hermitcrab
 ```
 
 或安装本地路径：
 
 ```bash
-openclaw plugins install file:/home/node/.openclaw/workspace/llm-clawbands
+openclaw plugins install file:/home/node/.openclaw/workspace/hermitcrab
 ```
 
 ### 步骤 3: 启用插件
 
 ```bash
-openclaw plugins enable llm-clawbands
+openclaw plugins enable hermitcrab
 openclaw restart
 ```
 
@@ -99,9 +99,9 @@ openclaw restart
 
 ```bash
 # 复制核心模块到你的插件目录
-cp -r /home/node/.openclaw/workspace/llm-clawbands/src/core /your/plugin/path/
-cp -r /home/node/.openclaw/workspace/llm-clawbands/src/memory /your/plugin/path/
-cp -r /home/node/.openclaw/workspace/llm-clawbands/src/types /your/plugin/path/
+cp -r /home/node/.openclaw/workspace/hermitcrab/src/core /your/plugin/path/
+cp -r /home/node/.openclaw/workspace/hermitcrab/src/memory /your/plugin/path/
+cp -r /home/node/.openclaw/workspace/hermitcrab/src/types /your/plugin/path/
 ```
 
 ### 步骤 2: 在插件入口注册钩子
@@ -168,15 +168,15 @@ const plugin = {
 
 ```bash
 # 添加令牌
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js token add frank Mengran123
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js token add frank Mengran123
 
 # 列出令牌
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js token list
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js token list
 ```
 
 ### 方式 B: 手动创建令牌文件
 
-创建 `~/.openclaw/llm-clawbands/tokens.json`：
+创建 `~/.openclaw/hermitcrab/tokens.json`：
 
 ```json
 {
@@ -226,7 +226,7 @@ Mengran123 NO
 ### 4. 查看审计日志
 
 ```bash
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js audit
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js audit
 ```
 
 ---
@@ -254,14 +254,14 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 cat /home/node/.openclaw/openclaw.json | grep -A 20 '"plugins"'
 ```
 
-确保 `llm-clawbands` 在 `allow` 列表中且 `enabled: true`。
+确保 `hermitcrab` 在 `allow` 列表中且 `enabled: true`。
 
 ### 问题 3: 令牌验证失败
 
 **重新初始化令牌：**
 ```bash
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js token remove frank
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js token add frank Mengran123
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js token remove frank
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js token add frank Mengran123
 ```
 
 ---
@@ -277,21 +277,21 @@ node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js token add fr
     "lastTouchedAt": "2026-03-19T04:00:00.000Z"
   },
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true
       }
     },
     "installs": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "source": "local",
-        "spec": "file:/home/node/.openclaw/workspace/llm-clawbands",
-        "installPath": "/home/node/.openclaw/workspace/llm-clawbands",
+        "spec": "file:/home/node/.openclaw/workspace/hermitcrab",
+        "installPath": "/home/node/.openclaw/workspace/hermitcrab",
         "version": "0.1.0",
-        "resolvedName": "llm-clawbands",
+        "resolvedName": "hermitcrab",
         "resolvedVersion": "0.1.0",
-        "resolvedSpec": "file:/home/node/.openclaw/workspace/llm-clawbands",
+        "resolvedSpec": "file:/home/node/.openclaw/workspace/hermitcrab",
         "installedAt": "2026-03-19T04:00:00.000Z"
       }
     }

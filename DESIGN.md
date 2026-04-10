@@ -55,7 +55,7 @@
 ## 📁 项目结构
 
 ```
-llm-clawbands/
+hermitcrab/
 ├── src/
 │   ├── core/
 │   │   ├── Interceptor.ts        # 工具拦截器 (before_tool_call)
@@ -259,17 +259,17 @@ function decayTrustScore(profile: Profile): number {
 ### 安装
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/llm-clawbands.git
-cd llm-clawbands
+git clone https://github.com/your-username/hermitcrab.git
+cd hermitcrab
 
 # 安装依赖
 npm install
 
 # 初始化
-npx llm-clawbands init
+npx hermitcrab init
 
 # 设置令牌
-npx llm-clawbands token add "Mengran123"
+npx hermitcrab token add "Mengran123"
 ```
 
 ### 配置示例
@@ -302,14 +302,14 @@ npx llm-clawbands token add "Mengran123"
 
 ### CLI 命令
 ```bash
-llm-clawbands init          # 初始化向导
-llm-clawbands token add     # 添加令牌
-llm-clawbands token list    # 列出令牌
-llm-clawbands policy        # 管理安全策略
-llm-clawbands profile       # 查看用户画像
-llm-clawbands audit         # 查询审计日志
-llm-clawbands stats         # 查看统计信息
-llm-clawbands learn reset   # 重置学习数据
+hermitcrab init          # 初始化向导
+hermitcrab token add     # 添加令牌
+hermitcrab token list    # 列出令牌
+hermitcrab policy        # 管理安全策略
+hermitcrab profile       # 查看用户画像
+hermitcrab audit         # 查询审计日志
+hermitcrab stats         # 查看统计信息
+hermitcrab learn reset   # 重置学习数据
 ```
 
 ---

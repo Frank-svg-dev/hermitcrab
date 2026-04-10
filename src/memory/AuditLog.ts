@@ -11,7 +11,7 @@ export class AuditLog {
   private readonly logPath: string;
 
   constructor(logPath?: string) {
-    this.logPath = logPath || path.join(process.env.HOME || '~', '.openclaw', 'llm-clawbands', 'audit.jsonl');
+    this.logPath = logPath || path.join(process.env.HOME || '~', '.openclaw', 'hermitcrab', 'audit.jsonl');
   }
 
   /**

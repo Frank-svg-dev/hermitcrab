@@ -6,7 +6,7 @@
   "main": "dist/plugin/index.js",
   "types": "dist/plugin/index.d.ts",
   "bin": {
-    "llm-clawbands": "./dist/cli/index.js"
+    "hermitcrab": "./dist/cli/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -29,7 +29,7 @@
     "plugin": {
       "id": "hermitcrab",
       "label": "HermitCrab",
-      "docsPath": "/plugins/llm-clawbands"
+      "docsPath": "/plugins/hermitcrab"
     }
   },
   "dependencies": {

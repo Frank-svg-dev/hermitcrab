@@ -9,7 +9,7 @@
 ### 1. 安装依赖
 
 ```bash
-cd llm-clawbands
+cd hermitcrab
 npm install
 ```
 
@@ -36,7 +36,7 @@ npm run init
 
 ```javascript
 // OpenClaw 插件配置
-import { onBeforeToolCall, clawbandsRespond } from 'llm-clawbands';
+import { onBeforeToolCall, clawbandsRespond } from 'hermitcrab';
 
 api.on('before_tool_call', onBeforeToolCall);
 api.registerTool('clawbands_respond', clawbandsRespond);
@@ -107,25 +107,25 @@ Agent: bash('rm -rf /tmp/cache')  # 第二次执行
 
 ```bash
 # 初始化
-llm-clawbands init
+hermitcrab init
 
 # 令牌管理
-llm-clawbands token add frank           # 添加令牌
-llm-clawbands token add frank MyPass123 # 指定令牌
-llm-clawbands token list                # 列出令牌
-llm-clawbands token remove frank        # 删除令牌
+hermitcrab token add frank           # 添加令牌
+hermitcrab token add frank MyPass123 # 指定令牌
+hermitcrab token list                # 列出令牌
+hermitcrab token remove frank        # 删除令牌
 
 # 审计日志
-llm-clawbands audit                     # 查看最近 20 条
-llm-clawbands audit -l 50               # 查看最近 50 条
-llm-clawbands audit --decision DENY     # 查看拒绝的记录
-llm-clawbands audit --module Shell      # 查看 Shell 模块
+hermitcrab audit                     # 查看最近 20 条
+hermitcrab audit -l 50               # 查看最近 50 条
+hermitcrab audit --decision DENY     # 查看拒绝的记录
+hermitcrab audit --module Shell      # 查看 Shell 模块
 
 # 统计信息
-llm-clawbands stats
+hermitcrab stats
 
 # 用户画像
-llm-clawbands profile
+hermitcrab profile
 ```
 
 ---
@@ -164,7 +164,7 @@ llm-clawbands profile
 ## 📁 项目结构
 
 ```
-llm-clawbands/
+hermitcrab/
 ├── src/
 │   ├── core/
 │   │   ├── Interceptor.ts        # 核心拦截器
@@ -198,14 +198,14 @@ llm-clawbands/
 
 ```bash
 # 测试令牌验证
-llm-clawbands token add testuser TestPass123
-llm-clawbands token list
+hermitcrab token add testuser TestPass123
+hermitcrab token list
 
 # 测试审计日志
-llm-clawbands audit
+hermitcrab audit
 
 # 查看统计
-llm-clawbands stats
+hermitcrab stats
 ```
 
 ---

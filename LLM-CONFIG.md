@@ -56,7 +56,7 @@ export CUSTOM_API_KEY="sk-your-api-key"
 
 ### 步骤 1: 创建配置文件
 
-文件：`~/.openclaw/workspace/llm-clawbands/config/llm.json`
+文件：`~/.openclaw/workspace/hermitcrab/config/llm.json`
 
 ```json
 {
@@ -231,7 +231,7 @@ export OPENCLAW_LLM_MODEL="qwen3.5-plus"
 ### 1. 查看当前配置
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 npm run build
 
 # 运行测试
@@ -253,7 +253,7 @@ node dist/test.js
 
 ```bash
 # 查看配置文件
-cat ~/.openclaw/workspace/llm-clawbands/config/llm.json
+cat ~/.openclaw/workspace/hermitcrab/config/llm.json
 
 # 查看环境变量
 env | grep -E "(CUSTOM_API_KEY|OPENCLAW_LLM)"
@@ -314,7 +314,7 @@ export CUSTOM_API_KEY="sk-your-api-key"
 ### 问题 4: 配置文件不生效
 
 **检查：**
-1. 文件路径是否正确：`~/.openclaw/workspace/llm-clawbands/config/llm.json`
+1. 文件路径是否正确：`~/.openclaw/workspace/hermitcrab/config/llm.json`
 2. JSON 格式是否正确
 3. 是否重启了 OpenClaw
 
@@ -342,7 +342,7 @@ export CUSTOM_API_KEY="sk-your-api-key"
 
 3. **限制文件权限**
    ```bash
-   chmod 600 ~/.openclaw/workspace/llm-clawbands/config/llm.json
+   chmod 600 ~/.openclaw/workspace/hermitcrab/config/llm.json
    ```
 
 4. **定期轮换 API Key**
@@ -362,7 +362,7 @@ export CUSTOM_API_KEY="sk-your-api-key"
 
 **文件位置：**
 - OpenClaw 配置：`/home/node/.openclaw/openclaw.json`
-- LLM-ClawBands 配置：`/home/node/.openclaw/workspace/llm-clawbands/config/llm.json` (可选)
+- LLM-ClawBands 配置：`/home/node/.openclaw/workspace/hermitcrab/config/llm.json` (可选)
 
 ---
 
@@ -380,7 +380,7 @@ export CUSTOM_API_KEY="sk-your-api-key"
 
 3. **测试配置：**
    ```bash
-   cd /home/node/.openclaw/workspace/llm-clawbands
+   cd /home/node/.openclaw/workspace/hermitcrab
    npm run build
    node dist/test.js
    ```

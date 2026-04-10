@@ -4,7 +4,7 @@
 
 set -e
 
-WORKSPACE="/home/node/.openclaw/workspace/llm-clawbands"
+WORKSPACE="/home/node/.openclaw/workspace/hermitcrab"
 OPENCLAW_HOME="/home/node/.openclaw"
 
 echo "🦞 LLM-ClawBands 快速集成"
@@ -26,7 +26,7 @@ fi
 # 2. 初始化令牌
 echo ""
 echo "🔐 初始化令牌..."
-if [ ! -f "$OPENCLAW_HOME/llm-clawbands/tokens.json" ]; then
+if [ ! -f "$OPENCLAW_HOME/hermitcrab/tokens.json" ]; then
     node "$WORKSPACE/dist/cli/index.js" token add frank Mengran123
     echo "✅ 令牌已初始化 (frank / Mengran123)"
 else
@@ -37,7 +37,7 @@ fi
 # 3. 检查 OpenClaw 配置
 echo ""
 echo "⚙️  检查 OpenClaw 配置..."
-if grep -q "llm-clawbands" "$OPENCLAW_HOME/openclaw.json"; then
+if grep -q "hermitcrab" "$OPENCLAW_HOME/openclaw.json"; then
     echo "✅ 插件已在 openclaw.json 中配置"
 else
     echo "⚠️  需要在 openclaw.json 中手动添加插件配置"
@@ -47,8 +47,8 @@ fi
 # 4. 创建数据目录
 echo ""
 echo "📁 创建数据目录..."
-mkdir -p "$OPENCLAW_HOME/llm-clawbands"
-echo "✅ 数据目录：$OPENCLAW_HOME/llm-clawbands"
+mkdir -p "$OPENCLAW_HOME/hermitcrab"
+echo "✅ 数据目录：$OPENCLAW_HOME/hermitcrab"
 
 # 5. 显示使用说明
 echo ""

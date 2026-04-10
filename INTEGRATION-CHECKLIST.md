@@ -9,17 +9,17 @@
 ```json
 {
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true
       }
     },
     "installs": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "source": "local",
-        "spec": "file:/home/node/.openclaw/workspace/llm-clawbands",
-        "installPath": "/home/node/.openclaw/workspace/llm-clawbands",
+        "spec": "file:/home/node/.openclaw/workspace/hermitcrab",
+        "installPath": "/home/node/.openclaw/workspace/hermitcrab",
         "version": "0.1.0"
       }
     }
@@ -30,7 +30,7 @@
 ### 2. 项目文件结构
 
 ```
-/home/node/.openclaw/workspace/llm-clawbands/
+/home/node/.openclaw/workspace/hermitcrab/
 ├── src/
 │   ├── types/index.ts              ✅ 类型定义
 │   ├── core/
@@ -65,7 +65,7 @@
 
 ```bash
 # 运行集成脚本
-/home/node/.openclaw/workspace/llm-clawbands/integrate.sh
+/home/node/.openclaw/workspace/hermitcrab/integrate.sh
 
 # 重启 OpenClaw
 openclaw restart
@@ -76,7 +76,7 @@ openclaw restart
 #### 1. 安装依赖并构建
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 npm install
 npm run build
 ```
@@ -153,7 +153,7 @@ Mengran123 YES
 ### 5. 查看审计日志
 
 ```bash
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js audit
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js audit
 ```
 
 ---
@@ -162,10 +162,10 @@ node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js audit
 
 | 文件 | 路径 | 说明 |
 |------|------|------|
-| 令牌存储 | `~/.openclaw/llm-clawbands/tokens.json` | 加密存储的令牌 |
-| 审计日志 | `~/.openclaw/llm-clawbands/audit.jsonl` | JSON Lines 格式日志 |
-| 用户画像 | `~/.openclaw/llm-clawbands/profiles.jsonl` | 画像数据 |
-| Memory | `~/.openclaw/llm-clawbands/memory.jsonl` | 学习数据 |
+| 令牌存储 | `~/.openclaw/hermitcrab/tokens.json` | 加密存储的令牌 |
+| 审计日志 | `~/.openclaw/hermitcrab/audit.jsonl` | JSON Lines 格式日志 |
+| 用户画像 | `~/.openclaw/hermitcrab/profiles.jsonl` | 画像数据 |
+| Memory | `~/.openclaw/hermitcrab/memory.jsonl` | 学习数据 |
 
 ---
 
@@ -246,13 +246,13 @@ private hashToken(token: string, salt: string): string {
 cat /home/node/.openclaw/openclaw.json | grep -A 5 '"plugins"'
 ```
 
-**确保：** `llm-clawbands` 在 `allow` 列表中且 `enabled: true`
+**确保：** `hermitcrab` 在 `allow` 列表中且 `enabled: true`
 
 ### 问题 2: 构建失败
 
 **解决：**
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 rm -rf node_modules package-lock.json
 npm install
 npm run build
@@ -262,7 +262,7 @@ npm run build
 
 **重置令牌：**
 ```bash
-rm ~/.openclaw/llm-clawbands/tokens.json
+rm ~/.openclaw/hermitcrab/tokens.json
 node dist/cli/index.js token add frank Mengran123
 ```
 

@@ -39,7 +39,7 @@ export class ProfileMatcher {
   private readonly TRUST_THRESHOLD = 0.8;
 
   constructor(profilesPath?: string) {
-    this.profilesPath = profilesPath || path.join(process.env.HOME || '~', '.openclaw', 'llm-clawbands', 'profiles.jsonl');
+    this.profilesPath = profilesPath || path.join(process.env.HOME || '~', '.openclaw', 'hermitcrab', 'profiles.jsonl');
   }
 
   /**

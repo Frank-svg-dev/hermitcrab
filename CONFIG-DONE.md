@@ -4,7 +4,7 @@
 
 **文件：** `/home/node/.openclaw/openclaw.json`
 
-**路径：** `plugins.entries.llm-clawbands.config`
+**路径：** `plugins.entries.hermitcrab.config`
 
 ---
 
@@ -13,9 +13,9 @@
 ```json
 {
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -27,7 +27,7 @@
             "timeout": 30000
           },
           "token": {
-            "secret": "llm-clawbands-token-secret-change-me",
+            "secret": "hermitcrab-token-secret-change-me",
             "algorithm": "sha256"
           },
           "profile": {
@@ -66,7 +66,7 @@
 
 | 字段 | 当前值 | 说明 |
 |------|--------|------|
-| `secret` | `llm-clawbands-token-secret-change-me` | **建议修改** |
+| `secret` | `hermitcrab-token-secret-change-me` | **建议修改** |
 | `algorithm` | `sha256` | 哈希算法 |
 
 ### 3. 用户画像 (`config.profile`)
@@ -106,7 +106,7 @@ echo $CUSTOM_API_KEY
 openssl rand -hex 32
 
 # 然后编辑 openclaw.json，替换：
-# "secret": "llm-clawbands-token-secret-change-me"
+# "secret": "hermitcrab-token-secret-change-me"
 # 改为：
 # "secret": "生成的随机密钥"
 ```
@@ -114,7 +114,7 @@ openssl rand -hex 32
 ### 3. 构建项目
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 npm install
 npm run build
 ```
@@ -166,7 +166,7 @@ bash('rm -rf /tmp/test')
 ### 测试 3: 查看审计日志
 
 ```bash
-node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js audit
+node /home/node/.openclaw/workspace/hermitcrab/dist/cli/index.js audit
 ```
 
 ---
@@ -238,8 +238,8 @@ node /home/node/.openclaw/workspace/llm-clawbands/dist/cli/index.js audit
 | 文件 | 说明 |
 |------|------|
 | `/home/node/.openclaw/openclaw.json` | **主配置文件** |
-| `/home/node/.openclaw/workspace/llm-clawbands/src/plugin/index.ts` | 插件入口 |
-| `/home/node/.openclaw/workspace/llm-clawbands/CONFIG-FORMAT.md` | 配置文档 |
+| `/home/node/.openclaw/workspace/hermitcrab/src/plugin/index.ts` | 插件入口 |
+| `/home/node/.openclaw/workspace/hermitcrab/CONFIG-FORMAT.md` | 配置文档 |
 
 ---
 
@@ -267,7 +267,7 @@ openclaw restart
 cat /home/node/.openclaw/openclaw.json | grep -A 10 '"plugins"'
 ```
 
-确保 `llm-clawbands` 在 `allow` 列表中。
+确保 `hermitcrab` 在 `allow` 列表中。
 
 ---
 

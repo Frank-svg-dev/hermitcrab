@@ -10,7 +10,7 @@ export class MemoryStore {
   private readonly memoryPath: string;
 
   constructor(memoryPath?: string) {
-    this.memoryPath = memoryPath || path.join(process.env.HOME || '~', '.openclaw', 'llm-clawbands', 'memory.jsonl');
+    this.memoryPath = memoryPath || path.join(process.env.HOME || '~', '.openclaw', 'hermitcrab', 'memory.jsonl');
   }
 
   /**

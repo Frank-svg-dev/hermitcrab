@@ -26,7 +26,7 @@ export class TokenValidator {
     try {
       if (fs.existsSync(this.configPath)) {
         const config = JSON.parse(fs.readFileSync(this.configPath, 'utf-8'));
-        const secrets = config.plugins?.entries?.['llm-clawbands']?.config?.token?.secrets;
+        const secrets = config.plugins?.entries?.['hermitcrab']?.config?.token?.secrets;
         
         if (Array.isArray(secrets)) {
           this.tokenSecrets = secrets;
@@ -34,7 +34,7 @@ export class TokenValidator {
           this.tokenSecrets = [secrets];
         } else {
           // 兼容旧的 secret 字段
-          const secret = config.plugins?.entries?.['llm-clawbands']?.config?.token?.secret;
+          const secret = config.plugins?.entries?.['hermitcrab']?.config?.token?.secret;
           if (secret) {
             this.tokenSecrets = [secret];
           }

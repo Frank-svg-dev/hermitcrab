@@ -81,7 +81,7 @@ node dist/cli/index.js --help
 
 ```bash
 # 确保配置正确
-cat /home/node/.openclaw/openclaw.json | grep -A 20 '"llm-clawbands"'
+cat /home/node/.openclaw/openclaw.json | grep -A 20 '"hermitcrab"'
 
 # 重启 OpenClaw
 openclaw restart
@@ -107,7 +107,7 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 ## 📝 编译命令
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 
 # 编译
 npm run build

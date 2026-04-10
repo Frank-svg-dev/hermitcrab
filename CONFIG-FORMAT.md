@@ -4,7 +4,7 @@
 
 **文件：** `/home/node/.openclaw/openclaw.json`
 
-**路径：** `plugins.entries.llm-clawbands.config`
+**路径：** `plugins.entries.hermitcrab.config`
 
 ---
 
@@ -12,14 +12,14 @@
 
 ### 步骤 1: 编辑 openclaw.json
 
-在 `plugins.entries.llm-clawbands` 中添加 `config`：
+在 `plugins.entries.hermitcrab` 中添加 `config`：
 
 ```json
 {
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -56,9 +56,9 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 ```json
 {
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -138,7 +138,7 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 {
   "plugins": {
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -162,7 +162,7 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 {
   "plugins": {
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -186,7 +186,7 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 {
   "plugins": {
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -210,7 +210,7 @@ tail -f /home/node/.openclaw/logs/gateway.log | grep "LLM-ClawBands"
 {
   "plugins": {
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -247,7 +247,7 @@ echo "openclaw.json" >> .gitignore
 {
   "plugins": {
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {
@@ -337,7 +337,7 @@ bash('rm -rf /tmp/test')
 **检查：**
 1. `openclaw.json` 格式是否正确 (JSON)
 2. 是否重启了 OpenClaw
-3. 配置路径是否正确 (`plugins.entries.llm-clawbands.config`)
+3. 配置路径是否正确 (`plugins.entries.hermitcrab.config`)
 
 ### 问题 3: 插件未加载
 
@@ -356,9 +356,9 @@ cat /home/node/.openclaw/openclaw.json | grep -A 5 '"allow"'
 ```json
 {
   "plugins": {
-    "allow": ["llm-clawbands"],
+    "allow": ["hermitcrab"],
     "entries": {
-      "llm-clawbands": {
+      "hermitcrab": {
         "enabled": true,
         "config": {
           "llm": {

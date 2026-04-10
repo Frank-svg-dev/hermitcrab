@@ -1,11 +1,11 @@
 /**
- * OpenClaw 插件入口 - LLM-ClawBands
+ * OpenClaw 插件入口 - HermitCrab
  * 
  * 配置方式 (在 openclaw.json 中):
  * {
  *   "plugins": {
  *     "entries": {
- *       "llm-clawbands": {
+ *       "hermitcrab": {
  *         "enabled": true,
  *         "config": {
  *           "llm": {
@@ -35,8 +35,8 @@ let interceptor: Interceptor | null = null;
  * OpenClaw 插件定义
  */
 export const plugin = {
-  id: 'llm-clawbands',
-  name: 'LLM-ClawBands',
+  id: 'hermitcrab',
+  name: 'HermitCrab',
   description: 'LLM-powered security middleware with token auth and profile learning',
   
   /**
@@ -154,7 +154,7 @@ export const plugin = {
    * 插件注册函数
    */
   register(api: any): void {
-    console.log('[LLM-ClawBands] 插件注册中...');
+    console.log('[HermitCrab] 插件注册中...');
     
     // 直接读取 openclaw.json 获取配置
     const configPath = path.join(process.env.HOME || '/home/node', '.openclaw', 'openclaw.json');
@@ -162,14 +162,14 @@ export const plugin = {
     
     try {
       const fullConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-      pluginConfig = fullConfig.plugins?.entries?.['llm-clawbands']?.config || {};
-      console.log('[LLM-ClawBands] 读取配置成功');
+      pluginConfig = fullConfig.plugins?.entries?.['hermitcrab']?.config || {};
+      console.log('[HermitCrab] 读取配置成功');
     } catch (e: any) {
-      console.warn('[LLM-ClawBands] 无法读取配置文件:', e.message);
-      console.warn('[LLM-ClawBands] 将使用默认配置');
+      console.warn('[HermitCrab] 无法读取配置文件:', e.message);
+      console.warn('[HermitCrab] 将使用默认配置');
     }
     
-    console.log('[LLM-ClawBands] 配置:', JSON.stringify(pluginConfig, null, 2));
+    console.log('[HermitCrab] 配置:', JSON.stringify(pluginConfig, null, 2));
 
     // 合并默认配置和用户配置
     const mergedConfig: InterceptorConfig = {
@@ -191,8 +191,8 @@ export const plugin = {
 
     // 初始化拦截器 (传入配置)
     interceptor = new Interceptor(mergedConfig, pluginConfig?.llm);
-    console.log('[LLM-ClawBands] 拦截器初始化完成');
-    console.log('[LLM-ClawBands] LLM 配置:', pluginConfig?.llm?.model || '使用默认模型');
+    console.log('[HermitCrab] 拦截器初始化完成');
+    console.log('[HermitCrab] LLM 配置:', pluginConfig?.llm?.model || '使用默认模型');
 
     // 注册 before_tool_call 钩子
     api.on('before_tool_call', async (event: any) => {
@@ -204,7 +204,7 @@ export const plugin = {
         timestamp: Date.now(),
       };
 
-      console.log('[LLM-ClawBands] 拦截工具调用:', toolCall.module, toolCall.method);
+      console.log('[HermitCrab] 拦截工具调用:', toolCall.module, toolCall.method);
 
       try {
         const result = await interceptor!.intercept(toolCall);
@@ -216,7 +216,7 @@ export const plugin = {
             event.preventDefault();
             event.blockReason = result.reason || 'BLOCKED_BY_LLM_CLAWBANDS';
           }
-          console.log('[LLM-ClawBands] 已阻止:', result.reason);
+          console.log('[HermitCrab] 已阻止:', result.reason);
           return { block: true, blockReason: result.message };
         }else if (result.block == undefined) {
           return { block: true, message: result.message };
@@ -224,7 +224,7 @@ export const plugin = {
         return { block: false, message: result.message };
 
       } catch (error) {
-        console.error('[LLM-ClawBands] 拦截器错误:', error);
+        console.error('[HermitCrab] 拦截器错误:', error);
         return { block: true, message: "INTERCEPTOR_ERROR, 需要人工确认" };
       }
     });
@@ -237,16 +237,16 @@ export const plugin = {
       }
     });
 
-    console.log('[LLM-ClawBands] 插件注册完成');
+    console.log('[HermitCrab] 插件注册完成');
   },
 
   /**
    * 插件卸载
    */
   unregister(): void {
-    console.log('[LLM-ClawBands] 插件卸载中...');
+    console.log('[HermitCrab] 插件卸载中...');
     interceptor = null;
-    console.log('[LLM-ClawBands] 插件已卸载');
+    console.log('[HermitCrab] 插件已卸载');
   },
 };
 
@@ -254,9 +254,9 @@ export const plugin = {
  * 初始化插件 (兼容旧用法)
  */
 export async function init(config?: any): Promise<void> {
-  console.log('[LLM-ClawBands] 插件初始化...');
+  console.log('[HermitCrab] 插件初始化...');
   interceptor = new Interceptor(DEFAULT_CONFIG, config?.llm);
-  console.log('[LLM-ClawBands] 插件初始化完成');
+  console.log('[HermitCrab] 插件初始化完成');
 }
 
 
@@ -268,12 +268,12 @@ async function handleUserMessage(api: any, message: string) {
   }
 
   const [, token, decision] = match;
-  console.log('[LLM-ClawBands] 收到审批回复:', token, decision);
+  console.log('[HermitCrab] 收到审批回复:', token, decision);
 
   // 获取待审批请求
   const pending = interceptor?.getPendingRequests();
   if (!pending || pending.length === 0) {
-    console.log('[LLM-ClawBands] 没有待审批的请求');
+    console.log('[HermitCrab] 没有待审批的请求');
     return;
   }
 
@@ -282,11 +282,11 @@ async function handleUserMessage(api: any, message: string) {
   const result = await interceptor?.respond(requestId, `${token} ${decision}`);
 
   if (result?.approved) {
-    console.log('[LLM-ClawBands] 校验通过，重试工具调用');
+    console.log('[HermitCrab] 校验通过，重试工具调用');
     return { block: false, blockReason: '校验通过，重试工具调用' };
     // TODO: 重试工具调用
   } else {
-    console.log('[LLM-ClawBands] 校验失败:', result?.reason);
+    console.log('[HermitCrab] 校验失败:', result?.reason);
     return { block: true, blockReason: '校验失败，需要重新输入正确的口令' };
   }
 }
@@ -305,10 +305,10 @@ async function sendMessage(api: any, content: string) {
     } else if (api?.send) {
       await api.send(content);
     } else {
-      console.log('[LLM-ClawBands] 消息:', content);
+      console.log('[HermitCrab] 消息:', content);
     }
   } catch (error: any) {
-    console.error('[LLM-ClawBands] 发送消息失败:', error.message);
+    console.error('[HermitCrab] 发送消息失败:', error.message);
   }
 }
 
@@ -318,14 +318,14 @@ async function sendMessage(api: any, content: string) {
  */
 export async function onBeforeToolCall(toolCall: ToolCall): Promise<{ block: boolean; reason?: string }> {
   if (!interceptor) {
-    console.warn('[LLM-ClawBands] 插件未初始化，放行工具调用');
+    console.warn('[HermitCrab] 插件未初始化，放行工具调用');
     return { block: false };
   }
 
   try {
     return await interceptor.intercept(toolCall);
   } catch (error) {
-    console.error('[LLM-ClawBands] 拦截器错误:', error);
+    console.error('[HermitCrab] 拦截器错误:', error);
     return { block: false };
   }
 }

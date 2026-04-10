@@ -14,7 +14,7 @@
 ## 项目文件结构
 
 ```
-llm-clawbands/
+hermitcrab/
 ├── src/
 │   ├── types/index.ts              # 类型定义
 │   ├── core/
@@ -40,7 +40,7 @@ llm-clawbands/
 ### 1. 安装依赖
 
 ```bash
-cd /home/node/.openclaw/workspace/llm-clawbands
+cd /home/node/.openclaw/workspace/hermitcrab
 npm install
 ```
 
@@ -76,7 +76,7 @@ node dist/cli/index.js audit
 
 ```javascript
 // openclaw.config.js 或插件入口
-import { onBeforeToolCall, clawbandsRespond, init } from './llm-clawbands/dist/plugin/index.js';
+import { onBeforeToolCall, clawbandsRespond, init } from './hermitcrab/dist/plugin/index.js';
 
 // 初始化插件
 await init();
